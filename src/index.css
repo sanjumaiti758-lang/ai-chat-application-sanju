@@ -1,0 +1,221 @@
+/* ==========================================================================
+   Nexora — Glassmorphism CSS Design System
+   ========================================================================== */
+
+:root {
+  /* WhatsApp Dark Theme Palette */
+  --bg-dark-base: #111B21;
+  --bg-dark-surface: #111B21;
+  --bg-dark-header: #202C33;
+  --bg-dark-elevated: #202C33;
+  --bg-chat-area: #0B141A;
+  --bg-msg-sent: #005C4B;
+  --bg-msg-received: #202C33;
+  --bg-glass-card: rgba(255, 255, 255, 0.05);
+  --bg-glass-card-hover: #2A3942;
+  --bg-glass-border: rgba(255, 255, 255, 0.08);
+
+  /* WhatsApp Emerald Accent Colors */
+  --primary-accent: #00A884;
+  --primary-accent-glow: rgba(0, 168, 132, 0.3);
+  --secondary-accent: #128C7E;
+  --whatsapp-green: #25D366;
+  --cyan-accent: #34B7F1;
+  --emerald-accent: #00A884;
+  --rose-accent: #F43F5E;
+  --amber-accent: #FFB800;
+
+  /* Text Colors */
+  --text-main: #E9EDEF;
+  --text-muted: #8696A0;
+  --text-dim: #667781;
+  --text-sent: #E9EDEF;
+
+  /* Geometry & Shadows */
+  --border-radius-sm: 6px;
+  --border-radius-md: 10px;
+  --border-radius-lg: 18px;
+  --border-radius-full: 9999px;
+  --shadow-glass: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --backdrop-blur: blur(8px);
+}
+
+/* Light Theme (WhatsApp Light Mode) */
+[data-theme="light"] {
+  --bg-dark-base: #EFEAE2;
+  --bg-dark-surface: #FFFFFF;
+  --bg-dark-header: #F0F2F5;
+  --bg-dark-elevated: #FFFFFF;
+  --bg-chat-area: #EFEAE2;
+  --bg-msg-sent: #D9FDD3;
+  --bg-msg-received: #FFFFFF;
+  --bg-glass-card: rgba(0, 0, 0, 0.03);
+  --bg-glass-card-hover: #F5F6F6;
+  --bg-glass-border: rgba(0, 0, 0, 0.08);
+  --primary-accent: #008069;
+  --primary-accent-glow: rgba(0, 128, 105, 0.25);
+  --secondary-accent: #075E54;
+  --text-main: #111B21;
+  --text-muted: #54656F;
+  --text-dim: #8696A0;
+  --text-sent: #111B21;
+  --shadow-glass: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* CSS Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark-base);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow: hidden;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom WhatsApp Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(134, 150, 160, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(134, 150, 160, 0.5);
+}
+
+/* Utility Layout Classes */
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.flex-1 { flex: 1; min-width: 0; }
+
+/* Custom Badge Pill */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--border-radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.badge-primary {
+  background: rgba(0, 168, 132, 0.2);
+  color: var(--primary-accent);
+  border: 1px solid rgba(0, 168, 132, 0.3);
+}
+
+.badge-online {
+  background: rgba(37, 211, 102, 0.2);
+  color: var(--whatsapp-green);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+/* Glass Card Component */
+.glass-panel {
+  background: var(--bg-dark-surface);
+  border: 1px solid var(--bg-glass-border);
+  box-shadow: var(--shadow-glass);
+}
+
+.glass-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: transparent;
+  border: none;
+  border-radius: var(--border-radius-full);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+}
+
+.glass-btn-primary {
+  background: var(--primary-accent);
+  border: none;
+  box-shadow: 0 4px 12px var(--primary-accent-glow);
+  color: #FFFFFF;
+}
+
+.glass-btn-primary:hover {
+  background: #008f70;
+  transform: translateY(-1px);
+}
+
+/* WhatsApp Input Pill */
+.glass-input {
+  width: 100%;
+  padding: 9px 14px;
+  background: #2A3942;
+  border: none;
+  border-radius: 8px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.92rem;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+[data-theme="light"] .glass-input {
+  background: #F0F2F5;
+  color: #111B21;
+}
+
+.glass-input:focus {
+  background: #202C33;
+}
+
+[data-theme="light"] .glass-input:focus {
+  background: #FFFFFF;
+}
+
+.glass-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Status Indicator Dots */
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid var(--bg-dark-header);
+}
+
+.status-dot.online { background-color: var(--whatsapp-green); }
+.status-dot.away { background-color: var(--amber-accent); }
+.status-dot.busy { background-color: var(--rose-accent); }
+.status-dot.offline { background-color: var(--text-dim); }
